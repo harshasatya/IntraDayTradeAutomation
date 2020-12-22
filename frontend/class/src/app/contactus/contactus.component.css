@@ -1,0 +1,54 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    position: fixed;
+    text-align: center;
+    
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+h2
+{
+    color: lightcyan;
+   font-size:30px;
+}
+
+.form
+{
+    
+    background: rgba(0, 0, 0, 0.2);
+    height: 50%;
+    width:100px;
+}
+h1
+{
+    font-size: 50px;
+    color: white;
+}
+
+.login-box{
+    width: 320px;
+    height: 350px;
+    background: rgba(0,0, 0, 0.3);
+    color: #000;
+    top: 160%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box; 
+    box-shadow: 0 0 20px lightblue;
+    padding: 70px 30px;
+}
+h3
+{
+color: white;
+}

@@ -1,0 +1,48 @@
+<video autoplay muted loop id="myVideo">
+  <source src="src\assets\market.mp4" type="video/mp4">
+</video>
+    <div class="login-box">
+    <img src="\src\assets\p1.jpg" class="avatar">
+        <h1>Login Here</h1>
+
+            <form>
+                <div class="form group" [class.has-error]="email.invalid && email.touched">
+    &nbsp;<label for="email" class="control-label" ><b>Email Id </b></label>
+    <input  type="text" [(ngModel)]="trader.email" placeholder="Enter Email" id="email" required  name="email"
+      [email]="trader.email!==''" #email="ngModel" class="form-control" >
+<span class="help-block" *ngIf="email.errors?.required  && email.touched"
+    style="color:red; text-align:center; font-size: 5mm ; font-style: italic" >
+ Email is required 
+  </span>
+  <span class="help-block" *ngIf="email.errors?.email && email.touched"  style="color: red; text-align:center">
+  Email is invalid 
+  </span>
+</div>
+
+
+
+
+            <!--<p>Email Id</p>-->
+            <!--<input [(ngModel)]="trader.email" type="text" name="username" placeholder="Enter Username">-->
+            
+            <div class="form group" [class.has-error]="password.invalid && email.touched">
+    &nbsp;<label for="password" class="control-label" ><b>Password</b></label>
+    <input  type="password" [(ngModel)]="trader.password" placeholder="Enter Password" id="password" required  name="password"
+      [email]="trader.password!==''" #password="ngModel" class="form-control" >
+<span class="help-block" *ngIf="password.errors?.required  && password.touched"
+    style="color:red; text-align:center; font-size: 5mm ; font-style: italic" >
+ Password is required 
+  </span>
+  <!--<span class="help-block" *ngIf="email.errors?.email && email.touched"  style="color: red; text-align:center">
+  Email is invalid 
+  </span>-->
+</div>
+            
+            
+            
+            
+            <input type="submit" (click)="getfriend()" name="submit" value="Login">
+         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            <a href="#">Forget Password?</a>    
+            </form>
+        </div>

@@ -1,0 +1,138 @@
+form
+{
+  width: 320px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    top: 56%;
+    left: 85%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box; 
+    box-shadow: 0 0 20px white;
+    padding: 70px 30px;
+    
+}
+.input[type=text] {
+  width: 50%;
+  padding: 1px;
+  margin: 5px 0 15px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.bg-img {
+  background-image: url("pic6.jpg");
+min-height: 600px;
+width:100%;
+overflow: none;
+  /*Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity:0.8;
+  position: relative;
+}
+
+.btn {
+  background-color: lightblue;
+  color: black;
+  padding: 1px 2px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 9px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+body
+{
+  background-color:black;
+}
+table
+{
+  position:center;
+  text-align:center;
+  width:100%;
+  display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    box-sizing: border-box; 
+    box-shadow: 0 0 20px lightblue;
+}
+
+footer
+{
+  height:100%;
+  background-color: black;
+  top: 10%;
+  margin-left: 0%;
+  left:0px;
+}
+img
+{
+  left:5%;
+  top:5%;
+  width:50%;
+   box-sizing: border-box; 
+    box-shadow: 0 0 20px black;
+}
+.container-fluid
+{
+padding : 20px 20px 0px 20px;
+}

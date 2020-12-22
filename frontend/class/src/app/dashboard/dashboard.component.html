@@ -1,0 +1,163 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <div class="bg-img">
+<body>
+
+
+  <div class="container-fluid">
+    <div class="header">
+      <a class="navbar-brand" href="dashboard">Swayam</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="dashboard">Home</a></li>
+      <li>
+        <a><input  class="btn btn-primary btn-lg" (click)="mfun()" type="submit" value="Market"></a>  
+      </li>
+      <li>
+        <a href="ledger"><input class="btn btn-primary btn-lg" type="submit" value="Ledger"></a></li>
+      <li><a><input class="btn btn-primary btn-lg" type="submit" value="Funds"></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+    </ul>
+  </div>
+ <div ><input style="border:none;background:transparent;  float: right; font-size:50px; color:white;" id="clk"  size="4" readonly></div>
+
+
+<div *ngIf="h1">
+<nav  class="navbar navbar-brand" >
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-center"><li style="color:white">
+      Market:
+    <select [(ngModel)]="market.market" name="market" style="color:black">
+      <option>Select</option>
+    <option value="NSE">NSE</option>
+    <option value="TSE">TSE</option>
+    <option value="LSE">LSE</option>
+    <option value="BSE">BSE</option>
+    </select></li>    
+<li style="color:white">   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     
+Class:
+    <select [(ngModel)]="market.class" name="class" style="color:black">
+      <option>Select</option>
+    <option value="Currency">Currency</option>
+    <option value="Commodity">Commodity</option>
+    
+    </select>
+</li>
+      <li style="color:white">        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+          Company:
+    <select [(ngModel)]="market.company" name="company" style="color:black">
+      <option>Select</option>
+    <option value="AAPL">AAPL</option>
+    <option value="MFST">MFST</option>
+    </select>
+</li>
+    
+<li>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <input (click)=gofun() type="submit" class="btn" value="Go">
+</li>
+    </ul>
+  </div>
+</nav>
+</div>
+</body>
+
+
+<div *ngIf="h2" >
+<div style="margin-left:7%">  <jqxChart #myChart
+    [width]="getWidth()" [height]="390"
+    [title]="'USD/ EURO Candlestick Chart'" 
+    [description]="''"
+    [enableAnimations]="true" [enableCrosshairs]="true" [animationDuration]="1500"
+    [source]="dataAdapter" [xAxis]="xAxis"
+    [seriesGroups]="seriesGroups" [colorScheme]="'scheme17'"  [padding]="padding" 
+    [style.left.%]="45">
+</jqxChart>
+</div>
+<form class="form-large">
+  
+<div class="container-fluid">
+Buy/Sell Currency:   &nbsp; &nbsp; &nbsp;
+    <select [(ngModel)]="trade.currency" [disabled]="f" style="color:black"> 
+      <option>Select</option>
+    <option value="USD">Dollar</option>
+    <option value="RP">Rupees</option>
+    <option value="EUR">Euro</option>
+    <option value="POU">Pound</option>
+    </select> <br>
+    <br>
+
+   Buy/Sell Quality:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <input style="color:black" [disabled]="f" type="text" [(ngModel)]="trade.quantity" name="quantity" size='5' >
+    <br>
+    <br>
+Closing Profit:        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <select [(ngModel)]="trade.profit" name="profit" [disabled]="f" style="color:black">
+      <option>Select</option>
+    <option value="5">5%</option>
+    <option value="2">2%</option>
+    <option value="1">1%</option>
+    <option value="0.5">0.5%</option>
+    </select>
+          <br>
+          <br>
+Closing loss:      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
+    <select [(ngModel)]="trade.loss" [disabled]="f" name="loss" style="color:black">
+      <option>Select</option>
+   <option value="5">5%</option>
+    <option value="2.5">2.5%</option>
+    <option value="1">1%</option>
+    <option value="0.5">0.5%</option>
+    </select>
+</div>
+<br>
+<div class="container">
+timer:       &nbsp; &nbsp;              <input style="color:black"  [disabled]="f" id="timervalue" type = "number" [(ngModel)]="trade.time" name="time"  size="1" >
+</div>
+<br>
+<div>
+ &nbsp; &nbsp; Manual Trade:
+  <select [disabled]="f" name="forma" onchange="location = this.value;" style="color:black">
+    <option>Select</option>
+<option value="buy">Buy</option>
+<option value="sell">Sell</option>
+  </select>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 AT
+<br>                
+ &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ <label class="switch">
+<input (click)=atfun() type="checkbox" id="btn">
+  <span class="slider round"></span>
+</label>
+</div>
+
+</form>
+ 
+
+<footer style="margin-top:7%">
+  <h5 style="color:white">Open Position</h5>
+  <table border="1" cellspacing="60">
+  <tr>
+    <th colspan="8"></th>
+  </tr>
+  <tr>
+    <td style="color:black" style="background-color:yellow">&nbsp;&nbsp;&nbsp;Symbol:</td>
+    <td style="color:black" style="background-color:white">&nbsp;&nbsp;&nbsp;USD-INR&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td style="color:black" style="background-color:yellow">&nbsp;&nbsp;&nbsp;Avg.Price:</td>
+    <td style="color:black" style="background-color:white">&nbsp;&nbsp;&nbsp;{{data.entry_price}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td style="color:black" style="background-color:yellow">&nbsp;&nbsp;&nbsp;LTP:</td>
+    <td style="color:black" style="background-color:white">&nbsp;&nbsp;&nbsp;{{data.exit_price}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td style="color:black" style="background-color:yellow">&nbsp;&nbsp;&nbsp;P/L:</td>
+    <td style="color:black" style="background-color:white">&nbsp;&nbsp;&nbsp;{{data.profit}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  </table>
+  <h5></h5>
+</footer> 
+</div>
+
